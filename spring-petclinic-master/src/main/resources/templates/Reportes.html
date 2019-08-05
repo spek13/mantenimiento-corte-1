@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'report')}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <body>
+         <h2>Reportes</h2>
+        
+        <div>
+               <a href="usuarios/reporte" class="btn btn-default">Reporte Usuarios </a>  
+        </div>
+        <br/>
+        <br/>
+         <div>
+               <a href="owners" class="btn btn-default">Reporte Propietarios </a>  
+        </div>
+        <br/>
+        <br/>
+        <div>
+               <a href="productos/reporte" class="btn btn-default">Reporte Productos </a>  
+        </div>
+        <br/>
+        <br/>
+        <div>
+               <a href="/reporte/login" class="btn btn-default">Reporte Login </a>  
+        </div>
+    </body>
+</html>

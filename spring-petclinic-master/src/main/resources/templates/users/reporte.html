@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'usuarios')}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <body>
+    <h2>Reporte Usuario</h2>
+        <table  class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Apellido</th>
+                    <th class="text-center">Email</th>
+                    <th class="text-center">Avatar</th>
+                    <th class="text-center">Status</th>
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${selections}">
+                    <td style="line-height:36px;" class="text-center" th:text="${user.name}"/>
+                    <td style="line-height:36px;" class="text-center" th:text="${user.lastName}"/>
+                    <td style="line-height:36px;" class="text-center" th:text="${user.email}"/>
+                    <td class="text-center" style="line-height:36px;">
+                    <img style="width:35px;box-shadow:1px 12px 4px#000;height:35px; border-radius:50%;" th:src="@{/resources/im/__${user.avatar}__}"/>
+              
+                    <td style="line-height:36px;" class="text-center" th:text="${user.status}"/>
+                     </tr>
+                
+            </tbody>
+        </table>
+    
+   
+    </body>
+</html>

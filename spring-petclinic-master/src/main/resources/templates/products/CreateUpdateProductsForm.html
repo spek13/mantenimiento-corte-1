@@ -1,0 +1,44 @@
+
+<html>
+  <html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'productos')}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+    <body>
+        <h2>Productos</h2>
+            <div class="modal-body">
+                <form th:object="${products}" action="/productos/store" method="post">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="">Nombre del producto</label>
+                            <input  th:field="${product.nombre}" required  class="form-control" type="text"  name="nombre">
+                            <!--<input  type="text" class="form-control" name="nombre">-->
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="">Precio</label>
+                           <input  th:field="${product.precio}" required class="form-control" type="text" name="precio" >
+                        </div>
+                                              
+                        <div class="form-group">
+                           <label for="">Descripcion </label>
+                           <input  th:field="${product.descripcion}" required  type="text" style="width:1100px; height:50px;" name="descripcion">
+                        </div>
+                                               
+                        <div class="form-group">
+                            <label for="">cantidad existente</label>
+                           <input  th:field="${product.stock}" required  type="number" class="form-control" name="stock">
+                        </div>
+                                                
+                        <div class="form-group">
+                            <label for="">Avatar</label>
+                            <input  th:field="${product.imagen}" required  type="file"  accept="image/*" name="imagen">
+                            <!--accept="image/png, image/jpeg">-->
+                        </div>
+                                                
+                      <div class="form-group">
+                            <button class="btn btn-default" type="submit">Agregar Producto</button>
+                        </div>                  
+                    </div>
+            </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'productos')}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ 
+    <body>
+        <h2>Lista de Productos</h2>
+        <div style="display:flex; justify-content: space-between; aling-items: center" > 
+            <!--<div>
+               <a href="productos/create" class="btn btn-default">Agregar nuevo producto </a>  
+             
+            </div>-->
+        </div>
+  
+        <table  class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">Id</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Precio</th>
+                    <th class="text-center">Descripcion</th>
+                    <th class="text-center">Stock</th>
+                    <th class="text-center">Avatar</th>
+                    <th class="text-center">Acciones</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="product : ${selections}">
+                <td style="line-height:36px;" class="text-center" th:text="${product.id}"/>
+                <td style="line-height:36px;" class="text-center" th:text="${product.nombre}"/>
+                <td style="line-height:36px;" class="text-center" th:text="${product.precio}"/>
+                <td style="line-height:36px;" class="text-center" th:text="${product.descripcion}"/>
+                <td style="line-height:36px;" class="text-center" th:text="${product.stock}"/>
+               <!-- <td style="line-height:36px;" class="text-center" th:text="${product.imagen}"/>-->
+                <td class="text-center" style="line-height:36px;">
+                  <img style="width:35px; box-shadow: 1px 2px 4px #000; height: 35px; border-radius:50%;" th:src="@{/resources/im/__${product.imagen}__}">
+                </td>
+                    <td class="text-center">
+                        <a th:href="@{productos/__${product.Id}__/EditarProductos}" class="btn btn-default">Editar</a>
+                        <form  method="POST"  th:action="@{/productos/__${product.id}__/delete}" style="display:inline-block;">
+                            <button type="submit" class="btn-default btn" >Eliminar </button>
+                        </form>  
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+         <div>
+               <a href="productos/create" class="btn btn-default">Agregar nuevo producto </a>  
+             
+            </div>
+    </body>
+</html>

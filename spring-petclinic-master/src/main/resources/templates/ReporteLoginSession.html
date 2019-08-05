@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'login')}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <body>
+    <h2>Reporte Inicio Session</h2>
+        <table  class="table table-striped">
+            <thead>
+                <tr>
+                    
+                    <th class="text-center">ID</th>
+                    <th class="text-center">Nombre</th>
+                    <th class="text-center">Status Login Session</th>
+                    <th class="text-center">Fecha Login</th>
+                    
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="login : ${selections}">
+                    <td style="line-height:36px;" class="text-center" th:text="${login.id}"/>
+                    <td style="line-height:36px;" class="text-center" th:text="${login.userName}"/>
+                    <td style="line-height:36px;" class="text-center" th:text="${login.successful}"/>
+                    <td style="line-height:36px;" class="text-center" th:text="${login.date}"/>
+                    
+                 </tr>
+                
+            </tbody>
+            
+        </table>
+    
+   
+    </body>
+</html>
